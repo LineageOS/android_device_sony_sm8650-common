@@ -37,51 +37,5 @@ on property:vendor.post_boot.parsed=1
     write /proc/irq/246/smp_affinity_list 2
     write /proc/irq/43/smp_affinity_list 1
 
-on property:ro.vendor.ltalabel.model=XQ-DQ44
-    setprop ro.vendor.product.rf.id pdx234-J4
-    setprop persist.vendor.nfc.config_file_name "libnfc-nxp-typef.conf"
-
-on property:ro.vendor.ltalabel.model=XQ-DQ54
-    setprop ro.vendor.product.rf.id pdx234-A4
-
-on property:ro.vendor.ltalabel.model=XQ-DQ62
-    setprop ro.vendor.product.rf.id pdx234-A2US
-
-on property:ro.vendor.ltalabel.model=XQ-DQ72
-    setprop ro.vendor.product.rf.id pdx234-C2
-
-on property:ro.vendor.ltalabel.model=A301SO
-    setprop ro.vendor.product.rf.id pdx234-S4
-    setprop persist.vendor.nfc.config_file_name "libnfc-nxp-typef.conf"
-
-on property:ro.vendor.ltalabel.model=SOG10
-    setprop ro.vendor.product.rf.id pdx234-K4
-    setprop persist.vendor.nfc.config_file_name "libnfc-nxp-typef.conf"
-
-on property:ro.vendor.ltalabel.model=SO-51D
-    setprop ro.vendor.product.rf.id pdx234-N4
-    setprop persist.vendor.nfc.config_file_name "libnfc-nxp-typef.conf"
-
-on property:ro.vendor.ltalabel.model=XQ-DE44
-    setprop ro.vendor.product.rf.id pdx237-J4
-    setprop persist.vendor.nfc.config_file_name "libnfc-nxp-typef.conf"
-
-on property:ro.vendor.ltalabel.model=XQ-DE54
-    setprop ro.vendor.product.rf.id pdx237-A4
-
-on property:ro.vendor.ltalabel.model=XQ-DE72
-    setprop ro.vendor.product.rf.id pdx237-C2
-
-on property:ro.vendor.ltalabel.model=SOG12
-    setprop ro.vendor.product.rf.id pdx237-K4
-    setprop persist.vendor.nfc.config_file_name "libnfc-nxp-typef.conf"
-
-on property:ro.vendor.ltalabel.model=SO-53D
-    setprop ro.vendor.product.rf.id pdx237-N4
-    setprop persist.vendor.nfc.config_file_name "libnfc-nxp-typef.conf"
-
-on property:sys.boot_completed=1
-     swapon_all /vendor/etc/fstab.zram
-
 on init
     write /sys/kernel/cnss/recovery 1
