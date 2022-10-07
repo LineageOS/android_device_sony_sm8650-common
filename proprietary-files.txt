@@ -316,7 +316,6 @@ vendor/etc/ssg/ta_config.json
 vendor/etc/ssg/tz_whitelist.json
 
 # Data
-vendor/bin/ATFWD-daemon
 vendor/bin/adpl
 vendor/bin/embmsslServer
 vendor/bin/nicmd
@@ -332,7 +331,6 @@ vendor/etc/init/init.embmssl_server.rc
 vendor/etc/init/nicmd.rc
 vendor/etc/init/port-bridge.rc
 vendor/etc/init/shsusrd.rc
-vendor/etc/seccomp_policy/atfwd@2.0.policy
 vendor/etc/vintf/manifest/vendor.qti.hardware.embmssl.xml
 vendor/lib64/libconfigdb.so
 vendor/lib64/libdsi_netctrl.so
@@ -622,10 +620,8 @@ vendor/lib64/vendor.qti.gnss-V5-ndk.so
 vendor/lib64/vendor.qti.gnss-service.so
 
 # Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper-service-spu-qti
 vendor/bin/hw/android.hardware.gatekeeper-service-qti
 vendor/etc/init/android.hardware.gatekeeper-service-qti.rc
-vendor/etc/init/android.hardware.gatekeeper-service-spu-qti.rc
 vendor/lib64/hw/libqtigatekeeper.so
 
 # Graphics (Adreno)
@@ -817,8 +813,6 @@ vendor/lib64/libspcom.so
 
 # Keyprov
 vendor/bin/keyprovd
-vendor/bin/spu_install_keybox
-vendor/bin/spu_status_check
 vendor/etc/init/init.keyprovd.rc
 
 # Limits
@@ -1201,7 +1195,6 @@ vendor/etc/qcril_database/qcrilNr.db
 vendor/etc/seccomp_policy/qcrilnr@2.0.policy
 vendor/etc/seccomp_policy/qms.policy
 vendor/etc/vintf/manifest/android.hardware.radio.config.xml
-vendor/etc/vintf/manifest/atfwd-saidl.xml
 vendor/etc/vintf/manifest/deviceinfo-saidl.xml
 vendor/etc/vintf/manifest/qms-saidl.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.radio.qtiradioconfig.xml
@@ -1270,7 +1263,6 @@ vendor/lib64/vendor.qti.hardware.data.dataactivity-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.data.ka-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.radio.am-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.radio.am@1.0.so
-vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.atfwd-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.radio.common-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.radio.internal.deviceinfo-V1-ndk.so
@@ -1390,6 +1382,8 @@ vendor/lib64/libsxrservice_client.qti.so
 vendor/bin/hw/android.hardware.secure_element-service.qti
 vendor/etc/vintf/manifest/android.hardware.secure_element.xml
 vendor/etc/init/android.hardware.secure_element-service.qti.rc
+vendor/lib64/hw/libEseUtils.so
+vendor/lib64/libGPQeSE.so
 
 # Secd
 system_ext/lib64/libMiscTaWrapper.so:vendor/lib64/libMiscTaWrapper.so
@@ -1559,15 +1553,25 @@ vendor/lib64/hw/vendor.qti.hardware.soter-impl.so
 vendor/lib64/vendor.qti.hardware.soter-V1-ndk.so
 
 # SPU
-vendor/bin/hw/vendor.qti.hardware.spu-service
+vendor/bin/hw/android.hardware.gatekeeper-service-spu-qti
+vendor/bin/hw/android.hardware.security.keymint-service-spu-qti
 vendor/bin/hw/android.hardware.weaver-service-spu-qti
+vendor/bin/hw/vendor.qti.hardware.spu-service
 vendor/bin/hw/vendor.qti.spu@1.1-service
 vendor/bin/hw/vendor.qti.spu@2.0-service
-vendor/etc/init/init.vendor.qti.hardware.spu.service.rc
-vendor/etc/init/init.vendor.qti.spu@1.1-service.rc
+vendor/bin/spu_install_keybox
+vendor/bin/spu_status_check
+vendor/bin/sputestclient
+vendor/bin/sputestclientv2
+vendor/bin/sputesthal
 vendor/etc/init/android.hardware.gatekeeper-service-spu-qti.rc
 vendor/lib64/hw/libEseUtils.so
 vendor/lib64/libGPQeSE.so
+vendor/etc/init/android.hardware.security.keymint-service-spu-qti.rc
+vendor/etc/init/init.spuservice.rc
+vendor/etc/init/init.vendor.qti.hardware.spu.service.rc
+vendor/etc/init/init.vendor.qti.spu@1.1-service.rc
+vendor/etc/vintf/manifest/android.hardware.security.keymint-service-spu-qti.xml
 vendor/lib64/hw/libspuqtigatekeeper.so
 vendor/lib64/libspukeymintdeviceutils.so
 vendor/lib64/libspukeymintprovision.so
@@ -1575,8 +1579,8 @@ vendor/lib64/libspukeymint.so
 vendor/lib64/libspukeymintutils.so
 vendor/lib64/libspu.so
 vendor/lib64/vendor.qti.hardware.spu-V2-ndk.so
-vendor/lib64/vendor.qti.spu@1.1.so
 vendor/lib64/vendor.qti.spu@1.0.so
+vendor/lib64/vendor.qti.spu@1.1.so
 vendor/lib64/vendor.qti.spu@2.0.so
 
 # Synx
