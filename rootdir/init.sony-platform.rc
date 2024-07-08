@@ -186,7 +186,7 @@ on property:sys.shutdown.requested=*
     write /sys/class/power_supply/battery/uevent change
 
 # create directory for wfd
-on post-fs-data && property:ro.build.type=userdebug
+on post-fs-data
     mkdir /data/vendor/wfd 0777 system system
 
 # Touch
