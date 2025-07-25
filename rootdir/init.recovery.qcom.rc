@@ -29,9 +29,6 @@ on boot
     wait /sys/devices/virtual/input/lxs_ts_input/after_probe
     write /sys/devices/virtual/input/lxs_ts_input/after_probe 1
 
-on early-init
-    write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
-
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
