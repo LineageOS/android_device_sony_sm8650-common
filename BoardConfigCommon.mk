@@ -63,11 +63,13 @@ BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
 # Kernel
-BOARD_KERNEL_CMDLINE += video=vfb:640x400,bpp=32,memsize=3072000
-BOARD_KERNEL_CMDLINE += nosoftlockup
 BOARD_BOOTCONFIG := \
+    androidboot.console=0 \
     androidboot.hardware=qcom \
+    androidboot.hypervisor.protected_vm.supported=true \
+    androidboot.load_modules_parallel=true \
     androidboot.memcg=1 \
+    androidboot.vendor.qspa=true \
     androidboot.usbcontroller=a600000.dwc3
 
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
