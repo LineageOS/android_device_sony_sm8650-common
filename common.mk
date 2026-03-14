@@ -251,11 +251,7 @@ $(call soong_config_set_bool,livedisplay_sdm,enable_dm,false)
 PRODUCT_COPY_FILES += \
     $(AUDIO_HAL_DIR)/configs/common/codec2/media_codecs_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2_audio.xml \
     $(AUDIO_HAL_DIR)/configs/common/codec2/service/1.0/c2audio.vendor.base-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.base-arm64.policy \
-    $(AUDIO_HAL_DIR)/configs/common/codec2/service/1.0/c2audio.vendor.ext-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy \
-    $(LOCAL_PATH)/media/media_codecs_performance_pineapple_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_pineapple.xml \
-    $(LOCAL_PATH)/media/media_codecs_performance_pineapple_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_pineapple_vendor.xml \
-    $(LOCAL_PATH)/media/media_codecs_pineapple_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_pineapple.xml \
-    $(LOCAL_PATH)/media/media_codecs_pineapple_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_pineapple_vendor.xml
+    $(AUDIO_HAL_DIR)/configs/common/codec2/service/1.0/c2audio.vendor.ext-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy
 
 # Memtrack
 PRODUCT_PACKAGES += \
