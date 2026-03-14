@@ -4,15 +4,15 @@
     "target_path": "hardware/sony"
   },
   {
-    "repository": "android_kernel_sony_sm8550",
-    "target_path": "kernel/sony/sm8550"
+    "repository": "android_kernel_sony_sm8650",
+    "target_path": "kernel/sony/sm8650"
   },
   {
-    "repository": "android_kernel_sony_sm8550-devicetrees",
-    "target_path": "kernel/sony/sm8550-devicetrees"
+    "repository": "android_kernel_sony_sm8650-devicetrees",
+    "target_path": "kernel/sony/sm8650-devicetrees"
   },
   {
-    "repository": "android_kernel_sony_sm8550-modules",
-    "target_path": "kernel/sony/sm8550-modules"
+    "repository": "android_kernel_sony_sm8650-modules",
+    "target_path": "kernel/sony/sm8650-modules"
   }
 ]

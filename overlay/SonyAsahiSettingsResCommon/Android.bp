@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "SonyYodoFrameworksResCommon",
+    name: "SonyAsahiSettingsResCommon",
     device_specific: true,
 }

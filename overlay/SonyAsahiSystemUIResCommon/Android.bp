@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "SonyYodoSystemUIResCommon",
+    name: "SonyAsahiSystemUIResCommon",
     device_specific: true,
 }

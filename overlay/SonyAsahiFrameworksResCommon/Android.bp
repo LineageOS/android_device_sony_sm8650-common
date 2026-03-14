@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "SonyYodoDeviceAsWebcamResCommon",
+    name: "SonyAsahiFrameworksResCommon",
     device_specific: true,
 }

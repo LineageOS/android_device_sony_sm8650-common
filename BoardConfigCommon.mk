@@ -16,7 +16,7 @@
 
 BOARD_VENDOR := sony
 
-COMMON_PATH := device/sony/sm8550-common
+COMMON_PATH := device/sony/sm8650-common
 
 # A/B
 AB_OTA_UPDATER := true
@@ -55,7 +55,7 @@ BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
 TARGET_NEEDS_DTBOIMAGE := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := kalama
+TARGET_BOOTLOADER_BOARD_NAME := pineapple
 TARGET_NO_BOOTLOADER := true
 
 # Init Boot
@@ -75,11 +75,11 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image
 
-TARGET_KERNEL_SOURCE := kernel/sony/sm8550
+TARGET_KERNEL_SOURCE := kernel/sony/sm8650
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
-    vendor/kalama_GKI.config \
-    vendor/sony/kalama_GKI.config \
+    vendor/pineapple_GKI.config \
+    vendor/sony/pineapple_GKI.config \
     vendor/debugfs.config
 
 BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.system_dlkm))
@@ -92,7 +92,7 @@ BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery 
 SYSTEM_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.include.system_dlkm))
 
 # Kernel Modules
-TARGET_KERNEL_EXT_MODULE_ROOT := kernel/sony/sm8550-modules
+TARGET_KERNEL_EXT_MODULE_ROOT := kernel/sony/sm8650-modules
 TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/mmrm-driver \
     qcom/opensource/mm-drivers/hw_fence \
@@ -132,7 +132,7 @@ TARGET_KERNEL_EXT_MODULES := \
     semc/hardware/kernel-modules/msm/lxs_ts
 
 # Platform
-TARGET_BOARD_PLATFORM := kalama
+TARGET_BOARD_PLATFORM := pineapple
 
 # Qcom
 BOARD_USES_QCOM_HARDWARE := true
@@ -168,8 +168,8 @@ DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := \
     $(COMMON_PATH)/manifest.xml \
     $(COMMON_PATH)/network_manifest.xml \
-    hardware/qcom-caf/sm8550/audio/primary-hal/configs/common/manifest_non_qmaa.xml \
-    hardware/qcom-caf/sm8550/audio/primary-hal/configs/common/manifest_non_qmaa_extn.xml
+    hardware/qcom-caf/sm8650/audio/primary-hal/configs/common/manifest_non_qmaa.xml \
+    hardware/qcom-caf/sm8650/audio/primary-hal/configs/common/manifest_non_qmaa_extn.xml
 
 # Lineage Touch HAL
 $(call soong_config_set,sony_touch,panel,lxs_ts)
@@ -284,4 +284,4 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
--include vendor/sony/sm8550-common/BoardConfigVendor.mk
+-include vendor/sony/sm8650-common/BoardConfigVendor.mk

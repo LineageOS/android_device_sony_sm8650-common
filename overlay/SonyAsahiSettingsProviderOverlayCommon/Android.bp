@@ -4,6 +4,7 @@
 //
 
 runtime_resource_overlay {
-    name: "SonyYodoTelephonyResCommon",
-    vendor: true,
+    name: "SonyAsahiSettingsProviderOverlayCommon",
+    device_specific: true,
 }
+

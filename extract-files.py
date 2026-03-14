@@ -18,13 +18,13 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'hardware/qcom-caf/sm8550',
+    'hardware/qcom-caf/sm8650',
     'hardware/qcom-caf/wlan',
     'hardware/sony',
     'vendor/qcom/opensource/commonsys/display',
     'vendor/qcom/opensource/commonsys-intf/display',
     'vendor/qcom/opensource/dataservices',
-    'vendor/sony/sm8550-common',
+    'vendor/sony/sm8650-common',
 ]
 
 
@@ -140,7 +140,7 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'sm8550-common',
+    'sm8650-common',
     'sony',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
