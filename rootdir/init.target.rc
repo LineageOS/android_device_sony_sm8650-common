@@ -1,4 +1,6 @@
+
 # Copyright (c) 2019-2021, The Linux Foundation. All rights reserved.
+# Copyright (C) 2023 Sony Corporation
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -58,6 +60,10 @@
 # IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+# NOTE: This file has been modified by Sony Corporation
+# Modifications are licensed under the License.
+#
 
 import /vendor/etc/init/hw/init.qti.kernel.rc
 
@@ -71,6 +77,11 @@ on init
     chown system system /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     start logd
+    mkdir /dev/cpuctl/general
+    copy_per_line /dev/cpuctl/tasks /dev/cpuctl/general/tasks
+    chown system system /dev/cpuctl/general
+    chown system system /dev/cpuctl/general/tasks
+    chmod 0644 /dev/cpuctl/general/tasks
 
 on early-fs
     start vold
@@ -83,15 +94,17 @@ on fs
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/secnvm 0770 system system
     mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /mnt/vendor/persist/data/tz 0700 system system
+    mkdir /mnt/vendor/persist/data/app_g 0700 system system
 
 on post-fs
     #Execute virtualization manager
-    enable vendor.qvirtmgr
-    start  vendor.qvirtmgr
+    enable vendor.qvirtservice_rs
+    start  vendor.qvirtservice_rs
 
 on late-fs
     wait_for_prop hwservicemanager.ready true
-    #exec_start wait_for_keymaster
+    exec_start wait_for_keymaster
     mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs-data
@@ -103,7 +116,16 @@ on early-boot
     verity_update_state
 
 on boot
-    write /dev/cpuset/audio-app/cpus 1-2
+    # write /dev/cpuset/audio-app/cpus 0-1
+    write /dev/cpuset/audio-app/cpus 2-3
+    # Add a cpuset for the camera daemon
+    # We want all cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/camera-daemon/mems 0
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+    chmod 0660 /dev/cpuset/camera-daemon/tasks
     chown system /sys/devices/platform/soc/990000.i2c/i2c-0/0-0038/trusted_touch_enable
     chmod 0660 /sys/devices/platform/soc/990000.i2c/i2c-0/0-0038/trusted_touch_enable
     chown system /sys/devices/platform/soc/990000.spi/spi_master/spi0/spi0.0/trusted_touch_enable
@@ -120,6 +142,7 @@ on property:vendor.display.lcd_density=640
 on init && property:ro.boot.mode=charger
     wait_for_prop vendor.all.modules.ready 1
     mount_all /vendor/etc/charger_fw_fstab.qti --early
+    start vendor.pd_mapper
     wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
 
@@ -152,10 +175,10 @@ service vendor.per_proxy /vendor/bin/pm-proxy
     group system
     disabled
 
-service vendor.mdm_helper /vendor/bin/mdm_helper
-    class core
-    group system wakelock
-    disabled
+#service vendor.mdm_helper /vendor/bin/mdm_helper
+#    class core
+#    group system wakelock
+#    disabled
 
 service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
     class core
@@ -167,6 +190,13 @@ on property:init.svc.vendor.per_mgr=running
 on property:sys.shutdown.requested=*
     write /sys/kernel/qcom_rproc/shutdown_in_progress 1
     stop vendor.per_proxy
+
+service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
+   class main
+   user system
+   group system wifi inet sdcard_rw media_rw diag
+   disabled
+   oneshot
 
 on early-boot && property:persist.vendor.pcie.boot_option=*
     write /sys/bus/platform/devices/1c00000.qcom,pcie/debug/boot_option ${persist.vendor.pcie.boot_option}
@@ -183,16 +213,3 @@ service fan_control_turn_off /vendor/bin/fan_service 0
     user root
     disabled
     oneshot
-
-service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
-    override
-    class hal
-    user audioserver
-    # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
-    group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct oem_2901 wakelock oem_2912
-    capabilities BLOCK_SUSPEND SYS_NICE
-    # setting RLIMIT_RTPRIO allows binder RT priority inheritance
-    rlimit rtprio 10 10
-    ioprio rt 4
-    task_profiles ProcessCapacityHigh HighPerformance
-    onrestart restart audioserver
