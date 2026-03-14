@@ -59,10 +59,8 @@ lib_fixups: lib_fixups_user_type = {
 
 blob_fixups: blob_fixups_user_type = {
     (
-        'vendor/bin/hw/android.hardware.security.keymint-service-qti',
         'vendor/bin/hw/vendor.semc.hardware.secd@1.1-service',
         'vendor/bin/keyprovd',
-        'vendor/lib64/libqtikeymint.so',
         'vendor/lib64/librkp.so',
     ): blob_fixup()
     .add_needed(
@@ -75,12 +73,6 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/etc/msm_irqbalance.conf': blob_fixup()
     .regex_replace(
         'IGNORED_IRQ=27,23,38', 'IGNORED_IRQ=27,23,38,115,332'
-    ),
-    'vendor/etc/seccomp_policy/qwesd@2.0.policy': blob_fixup()
-    .add_line_if_missing(
-        'pipe2: 1'
-    ).add_line_if_missing(
-        'gettid: 1'
     ),
     (
         'vendor/bin/hw/vendor.semc.hardware.extlight-service.somc',
@@ -103,14 +95,6 @@ blob_fixups: blob_fixups_user_type = {
     .add_needed(
         'libcodec2_shim.so'
     ),
-    # < 00009680: 6370 7566 7265 712d 6370 7525 6400 0000  cpufreq-cpu%d...
-    # < 00009690: 0000 0073 5f61 7070 5f73 746f 7000 2573  ...s_app_stop.%s
-    # ---
-    # > 00009680: 7468 6572 6d61 6c2d 6370 7566 7265 712d  thermal-cpufreq-
-    # > 00009690: 2564 0073 5f61 7070 5f73 746f 7000 2573  %d.s_app_stop.%s
-    'vendor/bin/thermal-engine-v2': blob_fixup()
-    .binary_regex_replace(b'thermal-cpufreq-%d\x00s_app_stop\x00%s',
-                          b'cpufreq-cpu%d\x00\x00\x00\x00\x00\x00s_app_stop\x00%s'),
     'vendor/lib64/hw/fingerprint.default.so': blob_fixup()
     .binary_regex_replace(b'bix.fingerprint', b'fingerprint\x00\x00\x00\x00'),
     'vendor/lib64/nfc_nci.nqx.default.hw.so': blob_fixup()
