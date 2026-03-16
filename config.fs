@@ -10,9 +10,6 @@ value:2903
 [AID_VENDOR_RFS_SHARED]
 value:2904
 
-[AID_VENDOR_FASTRPC]
-value:2908
-
 [AID_VENDOR_ADPL_ODL]
 value:2905
 
@@ -22,11 +19,71 @@ value:2906
 [AID_VENDOR_THERMAL]
 value:2907
 
+[AID_VENDOR_FASTRPC]
+value:2908
+
 [AID_VENDOR_QTR]
 value:2909
 
+[AID_VENDOR_NXP_STRONGBOX]
+value:2910
+
+[AID_VENDOR_NXP_WEAVER]
+value:2911
+
+[AID_VENDOR_SSGTZD]
+value:2912
+
+[AID_VENDOR_THALES_STRONGBOX]
+value:2913
+
 [AID_VENDOR_QCC]
 value:2914
+
+[AID_VENDOR_NXP_AUTHSECRET]
+value:2915
+
+[AID_VENDOR_THALES_WEAVER]
+value:2916
+
+[AID_VENDOR_THALES_AUTHSECRET]
+value:2917
+
+[vendor/bin/hw/android.hardware.security.keymint3-service.strongbox.nxp]
+mode: 0755
+user: AID_VENDOR_NXP_STRONGBOX
+group: AID_SYSTEM
+caps: SYS_ADMIN SYS_NICE WAKE_ALARM
+
+[vendor/bin/hw/android.hardware.weaver-service.nxp]
+mode: 0755
+user: AID_VENDOR_NXP_WEAVER
+group: AID_SYSTEM
+caps: SYS_ADMIN SYS_NICE WAKE_ALARM
+
+[vendor/bin/hw/android.hardware.authsecret-service.nxp-qti]
+mode: 0755
+user: AID_VENDOR_NXP_AUTHSECRET
+group: AID_SYSTEM
+caps: SYS_ADMIN SYS_NICE WAKE_ALARM
+
+[vendor/bin/hw/android.hardware.security.keymint-service.strongbox-thales]
+mode: 0755
+user: AID_VENDOR_THALES_STRONGBOX
+group: AID_SYSTEM
+caps: SYS_ADMIN SYS_NICE
+
+[vendor/bin/hw/android.hardware.weaver-service.thales]
+mode: 0755
+user: AID_VENDOR_THALES_WEAVER
+group: AID_SYSTEM
+caps: SYS_ADMIN SYS_NICE
+
+[vendor/bin/hw/android.hardware.authsecret-service.thales-qti]
+mode: 0755
+user: AID_VENDOR_THALES_AUTHSECRET
+group: AID_SYSTEM
+caps: SYS_ADMIN SYS_NICE
 
 [vendor/bin/wcnss_filter]
 mode: 0755
@@ -62,12 +119,6 @@ caps: BLOCK_SUSPEND NET_ADMIN
 mode: 0755
 user: AID_SYSTEM
 group: AID_SYSTEM
-caps: BLOCK_SUSPEND NET_ADMIN
-
-[vendor/bin/hw/android.hardware.bluetooth@aidl-service-qti]
-mode: 0755
-user: AID_BLUETOOTH
-group: AID_BLUETOOTH
 caps: BLOCK_SUSPEND NET_ADMIN
 
 [system/bin/cnss-daemon]
@@ -143,6 +194,12 @@ group: AID_RADIO
 caps: NET_BIND_SERVICE BLOCK_SUSPEND WAKE_ALARM
 
 [system/vendor/bin/imsrcsd]
+mode: 0755
+user: AID_RADIO
+group: AID_RADIO
+caps: NET_BIND_SERVICE BLOCK_SUSPEND WAKE_ALARM
+
+[vendor/bin/imsdaemon]
 mode: 0755
 user: AID_RADIO
 group: AID_RADIO
@@ -230,4 +287,16 @@ caps: 0
 mode: 0771
 user: AID_MEDIA
 group: AID_MEDIA
+caps: 0
+
+[soccp_firmware/]
+mode: 0771
+user: AID_ROOT
+group: AID_SYSTEM
+caps: 0
+
+[dcp_firmware/]
+mode: 0771
+user: AID_ROOT
+group: AID_SYSTEM
 caps: 0
