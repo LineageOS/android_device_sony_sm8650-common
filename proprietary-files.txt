@@ -89,7 +89,9 @@ vendor/lib64/libFlacSwDec.so
 vendor/lib64/libPeripheralStateUtils.so
 vendor/lib64/libadm.so
 vendor/lib64/libagm.so
+vendor/lib64/libasb_log.so
 vendor/lib64/libar-pal.so
+vendor/lib64/libarmemlog.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libdsd2pcm.so
 vendor/lib64/libmcs.so
@@ -97,6 +99,26 @@ vendor/lib64/libqtigefar.so
 vendor/lib64/libvui_dmgr.so
 vendor/lib64/libvui_dmgr_client.so
 vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
+vendor/lib64/libaudiosnpewrapper.so
+vendor/lib64/libaudiosnpewrapper_context.so
+vendor/lib64/libaudiokeymgr.so
+
+# Audio (Dolby)
+system_ext/etc/permissions/com.dolby.daxservice.xml
+vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
+vendor/bin/hw/vendor.dolby.media.c2-default-service-dax
+vendor/etc/dolby/dax-default-spatializer.xml
+vendor/etc/dolby/dax-default.xml
+#vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
+#vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc
+vendor/etc/media_codecs_dolby_audio.xml
+#vendor/etc/vintf/manifest/vendor.dolby.hardware.dms.xml
+#vendor/etc/vintf/manifest/vendor.dolby.media.c2@1.0-service.xml
+vendor/lib64/libcodec2_store_dolby.so
+vendor/lib64/vendor.dolby.dms-V1-ndk.so
+vendor/lib64/vendor.dolby.hardware.dms@2.0.so
+vendor/lib64/libdlbdsservice.so
+vendor/lib64/libdlbpreg.so
 
 # Audio FX modules
 vendor/lib64/soundfx/libasphere.so
@@ -112,7 +134,7 @@ vendor/lib64/soundfx/libdownmix.so
 vendor/lib64/soundfx/libdsee.so
 vendor/lib64/soundfx/libdynproc.so
 vendor/lib64/soundfx/libeffectproxy.so
-vendor/lib64/soundfx/libhapticgenerator.so
+vendor/lib64/soundfx/libhapticgenerator.so;DISABLE_DEPS
 vendor/lib64/soundfx/libldnhncr.so
 vendor/lib64/soundfx/libqcompostprocbundle.so
 vendor/lib64/soundfx/libqcomvisualizer.so
@@ -129,6 +151,17 @@ vendor/lib64/soundfx/libtsrupmix.so
 vendor/lib64/soundfx/libvisualizer.so
 vendor/lib64/soundfx/libvolumelistener.so
 vendor/lib64/soundfx/libznrwrapper.so
+vendor/lib64/librebuffering.so
+vendor/lib64/libznr.so
+vendor/lib64/libtsrspkenhance.so
+vendor/lib64/libupmix-lib.so
+vendor/lib64/libXtcApi.so
+vendor/lib64/libiVptHkiDec.so;DISABLE_CHECKELF
+vendor/lib64/libiVptLibC.so;DISABLE_CHECKELF
+vendor/lib64/libiVptApi.so;DISABLE_CHECKELF
+vendor/lib64/libdmshal.so
+vendor/lib64/libspatializerparamstorage.so
+vendor/lib64/libdapparamstorage.so
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.1-service-qti
@@ -155,7 +188,7 @@ vendor/lib64/libbluetooth_audio_session_qti_2_1.so
 vendor/lib64/libbt-hidlclient.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
-vendor/lib64/vendor.qti.hardware.fm@1.0.so
+vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
 
 # CDSP
 vendor/bin/cdsprpcd
@@ -229,7 +262,7 @@ vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 vendor/lib64/vendor.qti.hardware.data.cneaidlservice.internal.api-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.data.cneaidlservice.internal.constants-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.data.cneaidlservice.internal.server-V1-ndk.so
-vendor/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
+vendor/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.data.dynamicdds@1.1.so
 vendor/lib64/vendor.qti.hardware.data.dynamicddsaidlservice-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.data.flow@1.0.so
@@ -349,10 +382,13 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 
 # Diag
+system/lib64/vendor.qti.diaghal-V1-ndk.so
+system_ext/lib64/libdiagatbparser_system.so
 system_ext/lib64/vendor.qti.diaghal@1.0.so
 vendor/bin/diag-router
 vendor/etc/init/vendor.qti.diag.rc
 vendor/lib64/libdiag.so
+vendor/lib64/libdiagjni.so
 vendor/lib64/vendor.qti.diaghal@1.0.so;MODULE_SUFFIX=_vendor
 
 # Display (HDR)
@@ -524,6 +560,7 @@ vendor/etc/sec_config
 vendor/etc/xtwifi.conf
 vendor/lib64/hw/android.hardware.gnss-aidl-impl-qti.so
 vendor/lib64/libbatching.so
+vendor/lib64/libc++_shared.so
 vendor/lib64/libcdfw.so
 vendor/lib64/libcdfw_remote_api.so
 vendor/lib64/libdataitems.so
@@ -567,8 +604,10 @@ vendor/lib64/vendor.qti.gnss-V5-ndk.so
 vendor/lib64/vendor.qti.gnss-service.so
 
 # Gatekeeper
+vendor/bin/hw/android.hardware.gatekeeper-service-spu-qti
 vendor/bin/hw/android.hardware.gatekeeper-service-qti
 vendor/etc/init/android.hardware.gatekeeper-service-qti.rc
+vendor/etc/init/android.hardware.gatekeeper-service-spu-qti.rc
 vendor/lib64/hw/libqtigatekeeper.so
 
 # Graphics (Adreno)
@@ -650,6 +689,7 @@ system_ext/lib64/lib-imsvideocodec.so
 system_ext/lib64/lib-imsvt.so
 system_ext/lib64/lib-imsvtextutils.so
 system_ext/lib64/lib-imsvtutils.so
+system_ext/lib64/libdiag_system.so
 system_ext/lib64/libimscamera_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimscamera_jni.so
 system_ext/lib64/libimsmedia_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
@@ -728,8 +768,11 @@ vendor/bin/vendor_modprobe.sh
 
 # Keymaster
 vendor/bin/hw/android.hardware.security.keymint-service-qti
+vendor/bin/hw/android.hardware.security.keymint-service-spu-qti
 vendor/etc/init/android.hardware.security.keymint-service-qti.rc
+vendor/etc/init/android.hardware.security.keymint-service-spu-qti.rc
 vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml
+vendor/etc/vintf/manifest/android.hardware.security.keymint-service-spu-qti.xml
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
@@ -757,6 +800,7 @@ vendor/lib64/libcapiv2uvvendor.so
 vendor/lib64/libeai_fixed.so
 vendor/lib64/libeai_float.so
 vendor/lib64/liblistensoundmodel2vendor.so
+vendor/lib64/libVoiceSdk.so;DISABLE_DEPS
 
 # Media
 odm/etc/camera/media_profiles.xml:vendor/etc/media_profiles_cliffs_v1.xml;TRYSRCFIRST
@@ -833,16 +877,16 @@ vendor/etc/init/mlog_qmi_service.rc
 vendor/etc/public.libraries.txt
 
 # NFC
-vendor/bin/hw/android.hardware.nqnfc-service.nxp
-vendor/etc/libnfc-nxp.conf
-vendor/etc/libnfc-nxp_RF-jp.conf
-vendor/etc/init/nfc-service-nxp.rc
-vendor/etc/libnfc-nxp_RF-generic.conf
-vendor/etc/libnfc-nxp-jp.conf
-vendor/etc/libnfc-nxp_RF.conf
-vendor/lib64/vendor.nxp.nxpese@1.0.so
-vendor/lib64/vendor.nxp.hardware.nfc@2.0.so
-vendor/lib64/vendor.nxp.nxpnfc_aidl-V1-ndk.so
+#vendor/bin/hw/android.hardware.nqnfc-service.nxp
+#vendor/etc/libnfc-nxp.conf
+#vendor/etc/libnfc-nxp_RF-jp.conf
+#vendor/etc/init/nfc-service-nxp.rc
+#vendor/etc/libnfc-nxp_RF-generic.conf
+#vendor/etc/libnfc-nxp-jp.conf
+#vendor/etc/libnfc-nxp_RF.conf
+#vendor/lib64/vendor.nxp.nxpese@1.0.so
+#vendor/lib64/vendor.nxp.hardware.nfc@2.0.so
+#vendor/lib64/vendor.nxp.nxpnfc_aidl-V1-ndk.so
 
 # NFC Firmware
 vendor/lib64/libsn220u_fw.so
@@ -978,7 +1022,8 @@ vendor/etc/seccomp_policy/qesdk.policy
 vendor/etc/vintf/manifest/qesdk-manager.xml
 vendor/etc/vintf/manifest/vendor.qti.qccvndhal_aidl-service.xml
 vendor/lib64/libqcc_file_agent.so
-vendor/lib64/libqcc_sdk.so
+# TEMPORARY - REMOVE THIS AND SHIM
+vendor/lib64/libqcc_sdk.so;DISABLE_CHECKELF
 vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.qccsyshal@1.1.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.qccsyshal@1.2.so;MODULE_SUFFIX=_vendor
@@ -1049,13 +1094,13 @@ vendor/lib64/vendor.qti.qspmhal-impl.so
 vendor/lib64/vendor.qti.qspmhal@1.0.so
 
 # QTI service tracker
-vendor/bin/hw/vendor.qti.hardware.servicetrackeraidl-service
-vendor/etc/init/vendor.qti.hardware.servicetrackeraidl-service.rc
-vendor/etc/vintf/manifest/vendor.qti.hardware.servicetrackeraidl-service.xml
-vendor/lib64/hw/vendor.qti.hardware.servicetrackeraidl-impl.so
-vendor/lib64/vendor.qti.hardware.servicetracker@1.0.so
-vendor/lib64/vendor.qti.hardware.servicetracker@1.1.so
-vendor/lib64/vendor.qti.hardware.servicetrackeraidl-V1-ndk.so
+#vendor/bin/hw/vendor.qti.hardware.servicetrackeraidl-service
+#vendor/etc/init/vendor.qti.hardware.servicetrackeraidl-service.rc
+#vendor/etc/vintf/manifest/vendor.qti.hardware.servicetrackeraidl-service.xml
+#vendor/lib64/hw/vendor.qti.hardware.servicetrackeraidl-impl.so
+#vendor/lib64/vendor.qti.hardware.servicetracker@1.0.so
+#vendor/lib64/vendor.qti.hardware.servicetracker@1.1.so
+#vendor/lib64/vendor.qti.hardware.servicetrackeraidl-V1-ndk.so
 
 # RIL
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
@@ -1088,23 +1133,15 @@ vendor/etc/ssg/ta_config.json
 vendor/etc/ssg/tz_whitelist.json
 vendor/etc/telephony_packages.xml
 vendor/etc/vintf/manifest/android.hardware.radio.config.xml
-vendor/etc/vintf/manifest/android.hardware.radio.data.xml
-vendor/etc/vintf/manifest/android.hardware.radio.messaging.xml
-vendor/etc/vintf/manifest/android.hardware.radio.modem.xml
-vendor/etc/vintf/manifest/android.hardware.radio.network.xml
-vendor/etc/vintf/manifest/android.hardware.radio.sim.xml
-vendor/etc/vintf/manifest/android.hardware.radio.voice.xml
+vendor/etc/vintf/manifest/atfwd-saidl.xml
 vendor/etc/vintf/manifest/deviceinfo-saidl.xml
-vendor/etc/vintf/manifest/qcrilhook-saidl.xml
 vendor/etc/vintf/manifest/qms-saidl.xml
-vendor/etc/vintf/manifest/qtiradio-saidl.xml
-vendor/etc/vintf/manifest/vendor.qti.hardware.radio.am.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.radio.qtiradioconfig.xml
 vendor/lib64/deviceInfoServiceModuleNr.so
 vendor/lib64/libQtiRilLoadable.so
 vendor/lib64/liblqe.so
 vendor/lib64/libqcrilDataModule.so
-vendor/lib64/libqcrilNr.so
+vendor/lib64/libqcrilNr.so;DISABLE_DEPS
 vendor/lib64/libqcrilNrCellInfoModule.so
 vendor/lib64/libqcrilNrFramework.so
 vendor/lib64/libqcrilNrImsModule.so
@@ -1127,23 +1164,30 @@ vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/librilqmimiscservices.so
 vendor/lib64/libspc_vendor.so
 vendor/lib64/qcrilInterfaces.so
+vendor/lib64/qcrilIntermodulemsgs.so
 vendor/lib64/qcrilMarshal.so
 vendor/lib64/qcrilNrQmiModule.so
 vendor/lib64/qcrilNrSecureMode.so
+vendor/lib64/qcrilNr_aidl_common.so
 vendor/lib64/qcrilNr_aidl_IQtiRadioConfig.so
 vendor/lib64/qcrilNr_aidl_IRadioConfig.so
 vendor/lib64/qcrilNr_aidl_IRadioMessaging.so
 vendor/lib64/qcrilNr_aidl_IRadioModem.so
 vendor/lib64/qcrilNr_aidl_IRadioNetwork.so
+vendor/lib64/qcrilNr_aidl_IRadioSap.so
 vendor/lib64/qcrilNr_aidl_IRadioSim.so
 vendor/lib64/qcrilNr_aidl_IRadioVoice.so
-vendor/lib64/qcrilNr_aidl_common.so
+vendor/lib64/qcrilNr_aidl_SecureElementService.so
+vendor/lib64/qcrilNr_aidl_UimLpaService.so
+vendor/lib64/qcrilNr_aidl_UimRemoteClient.so
+vendor/lib64/qcrilNr_aidl_UimRemoteServer.so
+vendor/lib64/qcrilNr_aidl_UimService.so
 vendor/lib64/qcrild_libqcrilnr.so
 vendor/lib64/qcrild_libqcrilnrutils.so
 vendor/lib64/qtiPeripheralMgr.so
 vendor/lib64/qtiril-utils.so
 vendor/lib64/qtiwakelock.so
-vendor/lib64/vendor.qti.hardware.data.connection@1.0.so
+vendor/lib64/vendor.qti.hardware.data.connection@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.data.connection@1.1.so
 vendor/lib64/vendor.qti.hardware.data.connectionaidl-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.data.connectionfactory-V1-ndk.so
@@ -1200,6 +1244,7 @@ vendor/bin/qseecomd
 vendor/etc/gpfspath_oem_config.xml
 vendor/etc/init/qseecomd.rc
 vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.qseecom@1.0-service.xml
 vendor/lib64/hw/vendor.qti.hardware.qseecom@1.0-impl.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
@@ -1212,6 +1257,7 @@ vendor/lib64/libqisl.so
 vendor/lib64/librpmb.so
 vendor/lib64/libspl.so
 vendor/lib64/libssd.so
+vendor/lib64/vendor.qti.hardware.qseecom-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
 
 # RemoteFS
@@ -1238,6 +1284,11 @@ vendor/etc/init/vendor.semc.hardware.spc-service.rc
 # SSR
 vendor/bin/ssr_setup
 vendor/bin/subsystem_ramdump
+
+# Secure Element
+vendor/bin/hw/android.hardware.secure_element-service.qti
+vendor/etc/vintf/manifest/android.hardware.secure_element.xml
+vendor/etc/init/android.hardware.secure_element-service.qti.rc
 
 # Secd
 system_ext/lib64/libMiscTaWrapper.so:vendor/lib64/libMiscTaWrapper.so
@@ -1405,6 +1456,33 @@ vendor/etc/vintf/manifest/vendor.qti.hardware.soter-service.xml
 vendor/lib64/hw/vendor.qti.hardware.soter-impl.so
 vendor/lib64/vendor.qti.hardware.soter-V1-ndk.so
 
+# SPU
+vendor/bin/hw/vendor.qti.hardware.spu-service
+vendor/bin/hw/android.hardware.weaver-service-spu-qti
+vendor/bin/hw/vendor.qti.spu@1.1-service
+vendor/bin/hw/vendor.qti.spu@2.0-service
+vendor/etc/init/init.vendor.qti.hardware.spu.service.rc
+vendor/etc/init/init.vendor.qti.spu@1.1-service.rc
+vendor/etc/init/android.hardware.gatekeeper-service-spu-qti.rc
+vendor/etc/init/android.hardware.security.keymint-service-spu-qti.rc
+vendor/lib64/hw/libEseUtils.so
+vendor/lib64/libGPQeSE.so
+vendor/lib64/hw/libspuqtigatekeeper.so
+vendor/lib64/libspukeymintdeviceutils.so
+vendor/lib64/libspukeymintprovision.so
+vendor/lib64/libspukeymint.so
+vendor/lib64/libspukeymintutils.so
+vendor/lib64/libspu.so
+vendor/lib64/vendor.qti.hardware.spu-V2-ndk.so
+vendor/lib64/vendor.qti.spu@1.1.so
+vendor/lib64/vendor.qti.spu@1.0.so
+vendor/lib64/vendor.qti.spu@2.0.so
+
+# Synx
+vendor/lib64/libos.so
+vendor/lib64/libsynx.so
+vendor/lib64/libthreadutils.so
+
 # TA QMI
 vendor/bin/ta_qmi_service
 vendor/lib64/libta.so
@@ -1420,6 +1498,7 @@ vendor/etc/init/vendor.qti.tftp.rc
 vendor/bin/thermal-engine-v2
 vendor/etc/init/init_thermal-engine-v2.rc
 vendor/etc/thermal/thermal-engine.conf
+vendor/lib64/libsys-utils.so
 vendor/lib64/liblmthermallistner.so
 vendor/lib64/libthermalclient.so
 
@@ -1455,6 +1534,8 @@ vendor/bin/vppservice
 vendor/etc/configstore/vpp.configstore.xml
 vendor/etc/init/vppservice.rc
 vendor/etc/vintf/manifest/vendor.qti.hardware.vpp-service.xml
+vendor/lib64/libpfter.so
+vendor/lib64/libswiqisettinghelper.so
 vendor/lib64/libvppclient.so
 vendor/lib64/libvppcommon.so
 vendor/lib64/libvpphcp.so

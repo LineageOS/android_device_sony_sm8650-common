@@ -66,9 +66,18 @@ blob_fixups: blob_fixups_user_type = {
     .add_needed(
         'android.hardware.security.rkp-V3-ndk.so'
     ),
+    ('vendor/bin/hw/android.hardware.security.keymint-service-spu-qti',
+     'vendor/lib64/libspukeymint.so',
+     ): blob_fixup()
+        .replace_needed('android.hardware.security.sharedsecret-V2-ndk.so', 'android.hardware.security.sharedsecret-V1-ndk.so')
+        .replace_needed('android.hardware.security.keymint-V3-ndk.so', 'android.hardware.security.keymint-V2-ndk.so'),
     'vendor/bin/slim_daemon': blob_fixup()
     .add_needed(
         'libc++_shared.so',
+    ),
+    'vendor/etc/init/android.hardware.security.keymint-service-spu-qti.rc': blob_fixup()
+    .regex_replace(
+        'on init && property:ro.boot.product.vendor.sku=pineapple', 'on init'
     ),
     'vendor/etc/msm_irqbalance.conf': blob_fixup()
     .regex_replace(
@@ -90,6 +99,9 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
     .add_needed(
         'libhidlbase_shim.so',
+    )
+    .add_needed(
+        'libbinder_shim.so',
     ),
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
     .add_needed(
@@ -121,6 +133,15 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
         .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
+    (
+        'vendor/bin/qcc-vendor',
+        'vendor/bin/qms',
+        'vendor/bin/xtra-daemon',
+        'vendor/lib64/libcne.so',
+        'vendor/lib64/libqcc_sdk.so',
+        'vendor/lib64/libqms_client.so'
+    ): blob_fixup()
+        .add_needed('libbinder_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
