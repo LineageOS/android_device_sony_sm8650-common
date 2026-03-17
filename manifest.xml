@@ -38,6 +38,10 @@ SPDX-License-Identifier: BSD-3-Clause
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl">
+        <name>android.hardware.nfc</name>
+        <fqname>INfc/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>com.dsi.ant</name>
         <transport>hwbinder</transport>
@@ -73,6 +77,10 @@ SPDX-License-Identifier: BSD-3-Clause
             <name>IUceService</name>
             <instance>com.qualcomm.qti.uceservice</instance>
         </interface>
+    </hal>
+    <hal format="aidl">
+        <name>vendor.nxp.nxpnfc_aidl</name>
+        <fqname>INxpNfc/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.bluetooth_audio</name>
@@ -215,23 +223,13 @@ SPDX-License-Identifier: BSD-3-Clause
         <name>vendor.somc.hardware.aidlmiscta</name>
         <fqname>IMisctaGlobal/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>vendor.nxp.hardware.nfc</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>INqNfc</name>
-            <instance>default</instance>
-        </interface>
+    <hal format="aidl">
+        <name>vendor.somc.hardware.aidlnfc</name>
+        <fqname>ISomcNfc/default</fqname>
     </hal>
-    <hal format="hidl">
-        <name>vendor.somc.hardware.nfc</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ISomcNfc</name>
-            <instance>default</instance>
-        </interface>
+    <hal format="aidl">
+        <name>vendor.somc.hardware.security.aidlsecd</name>
+        <fqname>IDeviceSecurity/default</fqname>
     </hal>
     <hal format="aidl">
         <name>vendor.semc.hardware.spc</name>
