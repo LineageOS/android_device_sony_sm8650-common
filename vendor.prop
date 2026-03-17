@@ -147,6 +147,9 @@ ro.frp.pst=/dev/block/bootdevice/by-name/frp
 # Fuse
 persist.sys.fuse.passthrough.enable=true
 
+# Gatekeeper
+vendor.gatekeeper.is_security_level_spu=0
+
 # Graphics
 debug.sf.disable_client_composition_cache=1
 debug.sf.early.app.duration=16666666
