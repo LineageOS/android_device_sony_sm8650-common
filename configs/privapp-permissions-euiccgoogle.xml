@@ -14,6 +14,10 @@
         <permission name="android.permission.VIBRATE"/>
         <permission name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <permission name="android.permission.READ_NETWORK_USAGE_HISTORY"/>
+        <permission name="android.permission.REAL_GET_TASKS"/>
+        <permission name="com.android.permission.READ_NETWORK_USAGE_HISTORY"/>
+        <permission name="com.android.permission.REAL_GET_TASKS"/>
         <permission name="com.android.permission.INSTALL_EXISTING_PACKAGES"/>
         <permission name="com.android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
         <permission name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"/>
