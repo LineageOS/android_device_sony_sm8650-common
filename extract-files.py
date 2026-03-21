@@ -117,6 +117,9 @@ blob_fixups: blob_fixups_user_type = {
     .add_needed(
         'libinput_shim.so'
     ),
+    'vendor/etc/seccomp_policy/gnss@2.0-qsap-location.policy': blob_fixup()
+    .add_line_if_missing('sched_get_priority_min: 1')
+    .add_line_if_missing('sched_get_priority_max: 1'),
     (
         'vendor/bin/poweropt-service',
         'vendor/lib64/libaodoptfeature.so',
