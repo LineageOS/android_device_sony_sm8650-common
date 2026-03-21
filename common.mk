@@ -205,9 +205,6 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
-    fstab.qcom \
-    fstab.qcom.vendor_ramdisk \
-    fstab.zram \
     init.class_main.sh \
     init.kernel.post_boot.sh \
     init.kernel.post_boot-pineapple.sh \
@@ -223,6 +220,11 @@ PRODUCT_PACKAGES += \
     init.sony.rc \
     ueventd.qcom.rc \
     ueventd.sony.rc
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/fstab.qcom:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
 
 # Keymint
 PRODUCT_PACKAGES += \
@@ -373,9 +375,6 @@ PRODUCT_PACKAGES += \
     QtiTelephonyCompat \
     telephony-ext
 
-#PRODUCT_PACKAGES += \
-    qcrilNrDb_vendor
-
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
@@ -411,17 +410,13 @@ PRODUCT_PACKAGES_DEBUG += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb-service.qti \
-    android.hardware.usb.gadget-service.qti
-
-PRODUCT_PACKAGES += \
+    android.hardware.usb.gadget-service.qti \
     init.qcom.usb.rc \
-    init.qcom.usb.sh
+    init.qcom.usb.sh \
+    sony_usb_compositions.conf
 
 PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/usb/etc
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/usb/usb_compositions.conf:$(TARGET_COPY_OUT_VENDOR)/etc/usb_compositions.conf
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
