@@ -19,8 +19,8 @@ BOARD_VENDOR := sony
 COMMON_PATH := device/sony/sm8650-common
 
 # prebuilt kernel
-BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+#BUILD_BROKEN_DUP_RULES := true
+#BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # A/B
 AB_OTA_UPDATER := true
@@ -51,26 +51,45 @@ TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := kryo300
 
+# Audio
+AUDIO_FEATURE_ENABLED_DLKM := true
+AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
+AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
+AUDIO_FEATURE_ENABLED_GKI := true
+AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
+AUDIO_FEATURE_ENABLED_AGM_HIDL := true
+AUDIO_FEATURE_ENABLED_PAL_HIDL := true
+AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
+AUDIO_FEATURE_ENABLED_SSR := true
+AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
+BOARD_SUPPORTS_OPENSOURCE_STHAL := true
+BOARD_SUPPORTS_SOUND_TRIGGER := true
+BOARD_USES_ALSA_AUDIO := true
+TARGET_PROVIDES_AUDIO_HAL := true
+TARGET_PROVIDES_LIBAGM := true
+TARGET_PROVIDES_LIBAR_PAL := true
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := pineapple
+
 # Boot
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_RAMDISK_USE_LZ4 := true
 
-# DTB
+# DTB / DTBO
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
 TARGET_NEEDS_DTBOIMAGE := true
 
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := pineapple
-TARGET_NO_BOOTLOADER := true
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 
 # Init Boot
 BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
 # Kernel
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive console=ttyMSM0,115200n8
 BOARD_BOOTCONFIG := \
     androidboot.console=0 \
     androidboot.hardware=qcom \
@@ -79,36 +98,32 @@ BOARD_BOOTCONFIG := \
     androidboot.memcg=1 \
     androidboot.vendor.qspa=true \
     androidboot.usbcontroller=a600000.dwc3 \
-    androidboot.selinux=permissive \
-    console=ttyMSM0,115200n8
+    androidboot.selinux=permissive
 
-BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-BOARD_RAMDISK_USE_LZ4 := true
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image
-#
-#TARGET_KERNEL_SOURCE := kernel/sony/sm8650
-#TARGET_KERNEL_CONFIG := \
-#    gki_defconfig \
-#    vendor/pineapple_GKI.config \
-#    vendor/sony/pineapple_GKI.config \
-#    vendor/debugfs.config
-#
-#BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.system_dlkm))
-#BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/modules.blocklist
-#BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load))
-#BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
-#BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_boot))
-#BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
-#BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery $(COMMON_PATH)/modules.include.vendor_ramdisk))
-#SYSTEM_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.include.system_dlkm))
+
+TARGET_KERNEL_SOURCE := kernel/sony/sm8650
+TARGET_KERNEL_CONFIG := \
+    gki_defconfig \
+    vendor/pineapple_GKI.config \
+    vendor/sony/pineapple_GKI.config
+
+# Kernel modules
+BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(TARGET_KERNEL_SOURCE)/modules.system_dlkm.list.msm.pineapple))
+SYSTEM_KERNEL_MODULES := $(BOARD_SYSTEM_KERNEL_MODULES_LOAD)
+BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(TARGET_KERNEL_SOURCE)/modules.vendor_blocklist.msm.pineapple
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(TARGET_KERNEL_SOURCE)/modules.vendor_dlkm.list.msm.pineapple $(TARGET_KERNEL_SOURCE)/modules.vendor_dlkm.list.sony.pineapple))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(TARGET_KERNEL_SOURCE)/modules.vendor_boot.list.msm.pineapple $(TARGET_KERNEL_SOURCE)/modules.vendor_boot.list.sony.pineapple))
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(TARGET_KERNEL_SOURCE)/modules.recovery.list.msm.pineapple $(TARGET_KERNEL_SOURCE)/modules.recovery.list.sony.pineapple))
+BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)
 
 # Kernel Modules
-#TARGET_KERNEL_EXT_MODULE_ROOT := kernel/sony/sm8650-modules
-#TARGET_KERNEL_EXT_MODULES := \
+TARGET_KERNEL_EXT_MODULE_ROOT := kernel/sony/sm8650-modules
+TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/mmrm-driver \
     qcom/opensource/mm-drivers/hw_fence \
     qcom/opensource/mm-drivers/msm_ext_display \
@@ -140,47 +155,22 @@ BOARD_KERNEL_IMAGE_NAME := Image
     qcom/opensource/mm-sys-kernel/ubwcp \
     nxp/opensource/driver
 
-#TARGET_KERNEL_EXT_MODULES += \
-    cirrus/kernel-modules/cs35l45/sound/soc/codecs \
+TARGET_KERNEL_EXT_MODULES += \
+    semc/hardware/kernel-modules/msm/lxs_ts \
     cirrus/kernel-modules/cs40l25/drivers/misc \
     cirrus/kernel-modules/cs40l25/sound/soc/codecs \
-    semc/hardware/camera-kernel-module/camera_sync \
-    semc/hardware/camera-kernel-module/hdmi_detect \
-    semc/hardware/camera-kernel-module/slg51000_regulator \
-    semc/hardware/camera-kernel-module/sony_camera \
+    cirrus/kernel-modules/cs35l45/sound/soc/codecs \
     semc/hardware/charge/kernel-modules/battchg_ext \
     semc/hardware/charge/kernel-modules/battman_dbg \
-    semc/hardware/kernel-modules/misc/et6xx \
-    semc/hardware/kernel-modules/misc/ldo_vibrator \
-    semc/hardware/kernel-modules/msm/lxs_ts
+    semc/hardware/kernel-modules/misc/et6xx
+
+# Causes random kernel lockups, probably abi mismatch between upstream somehow
+#TARGET_KERNEL_EXT_MODULES += \
+    semc/hardware/camera-kernel-module/sony_camera \
 
 # Platform
-TARGET_BOARD_PLATFORM := pineapple
-
-# Qcom
 BOARD_USES_QCOM_HARDWARE := true
-
-# Audio
-AUDIO_FEATURE_ENABLED_DLKM := true
-AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
-AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
-AUDIO_FEATURE_ENABLED_GKI := true
-AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
-AUDIO_FEATURE_ENABLED_AGM_HIDL := true
-AUDIO_FEATURE_ENABLED_PAL_HIDL := true
-AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
-AUDIO_FEATURE_ENABLED_SSR := true
-AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
-BOARD_SUPPORTS_OPENSOURCE_STHAL := true
-BOARD_SUPPORTS_SOUND_TRIGGER := true
-BOARD_USES_ALSA_AUDIO := true
-TARGET_PROVIDES_AUDIO_HAL := true
-TARGET_PROVIDES_LIBAGM := true
-TARGET_PROVIDES_LIBAR_PAL := true
-TARGET_USES_QCOM_MM_AUDIO := true
-
-# Filesystem
-TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+TARGET_BOARD_PLATFORM := pineapple
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
