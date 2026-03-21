@@ -4,16 +4,10 @@
 //
 
 prebuilt_etc {
-    name: "fstab.qcom",
-    src: "fstab.qcom",
-    vendor: true,
-    vendor_ramdisk_available: true,
-}
-
-prebuilt_etc {
-    name: "fstab.zram",
-    src: "fstab.zram",
-    vendor: true,
+    name: "sony_usb_compositions.conf",
+    src: "usb_compositions.conf",
+    filename_from_src: true,
+    device_specific: true,
 }
 
 prebuilt_etc {
