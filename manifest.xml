@@ -38,10 +38,6 @@ SPDX-License-Identifier: BSD-3-Clause
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="aidl">
-        <name>android.hardware.nfc</name>
-        <fqname>INfc/default</fqname>
-    </hal>
     <hal format="hidl">
         <name>com.dsi.ant</name>
         <transport>hwbinder</transport>
@@ -77,10 +73,6 @@ SPDX-License-Identifier: BSD-3-Clause
             <name>IUceService</name>
             <instance>com.qualcomm.qti.uceservice</instance>
         </interface>
-    </hal>
-    <hal format="aidl">
-        <name>vendor.nxp.nxpnfc_aidl</name>
-        <fqname>INxpNfc/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.bluetooth_audio</name>
