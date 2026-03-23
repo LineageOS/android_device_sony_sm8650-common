@@ -75,6 +75,8 @@ service tad /vendor/bin/tad /dev/block/bootdevice/by-name/TA 0,16
 
 on post-fs-data
     # Fingerprint EGIS irq
+    chown system system /dev/esfp0
+    chmod 0600 /dev/esfp0
     mkdir /data/vendor/egis 0770 system system
     start ets_hal
 
