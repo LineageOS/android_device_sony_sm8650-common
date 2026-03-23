@@ -6,7 +6,7 @@
 //
 
 soong_config_module_type {
-    name: "sony_asahi_biometrics_config_default",
+    name: "sony_egis_biometrics_config_default",
     module_type: "cc_defaults",
     config_namespace: "lineage_hardware_biometrics",
     bool_variables: [
@@ -15,8 +15,8 @@ soong_config_module_type {
     properties: ["compile_multilib"],
 }
 
-sony_asahi_biometrics_config_default {
-    name: "sony_asahi_biometrics_config_default",
+sony_egis_biometrics_config_default {
+    name: "sony_egis_biometrics_config_default",
 
     soong_config_variables: {
         run_32bit: {
@@ -29,11 +29,11 @@ sony_asahi_biometrics_config_default {
 }
 
 cc_binary {
-    name: "android.hardware.biometrics.fingerprint-service.asahi",
-    defaults: ["sony_asahi_biometrics_config_default"],
+    name: "android.hardware.biometrics.fingerprint-service.egis",
+    defaults: ["sony_egis_biometrics_config_default"],
     relative_install_path: "hw",
-    init_rc: ["android.hardware.biometrics.fingerprint-service.asahi.rc"],
-    vintf_fragments: ["android.hardware.biometrics.fingerprint-service.asahi.xml"],
+    init_rc: ["android.hardware.biometrics.fingerprint-service.egis.rc"],
+    vintf_fragments: ["android.hardware.biometrics.fingerprint-service.egis.xml"],
     srcs: [
         "CancellationSignal.cpp",
         "Fingerprint.cpp",
