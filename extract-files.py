@@ -27,7 +27,6 @@ namespace_imports = [
     'vendor/sony/sm8650-common',
 ]
 
-
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
@@ -35,25 +34,19 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
-        'vendor.qti.hardware.fm@1.0',
-        'vendor.qti.hardware.data.cne.internal.api@1.0',
-        'vendor.qti.hardware.data.cne.internal.constants@1.0',
-        'vendor.qti.hardware.data.cne.internal.server@1.0',
-        'vendor.qti.hardware.data.connection@1.0',
-        'vendor.qti.hardware.data.connection@1.1',
-        'vendor.qti.hardware.data.dynamicdds@1.0',
-        'vendor.qti.hardware.data.iwlan@1.0',
-        'vendor.qti.hardware.data.qmi@1.0',
         'com.qualcomm.qti.dpm.api@1.0',
-        'vendor.qti.hardware.dpmservice@1.0',
+        'libosensenativeproxy_client',
+        'vendor.qti.ImsRtpService-V1-ndk',
         'vendor.qti.diaghal@1.0',
-        'vendor.qti.imsrtpservice@3.0',
-        'vendor.qti.imsrtpservice@3.1',
+        'vendor.qti.hardware.dpmaidlservice-V1-ndk',
+        'vendor.qti.hardware.dpmservice@1.0',
         'vendor.qti.hardware.qccsyshal@1.0',
         'vendor.qti.hardware.qccsyshal@1.1',
         'vendor.qti.hardware.qccsyshal@1.2',
-        'vendor.qti.hardware.qccvndhal@1.0',
         'vendor.qti.hardware.wifidisplaysession@1.0',
+        'vendor.qti.imsrtpservice@3.0',
+        'vendor.qti.imsrtpservice@3.1',
+        'vendor.qti.qccvndhal_aidl-V1-ndk',
     ): lib_fixup_vendor_suffix,
 }
 
@@ -71,18 +64,6 @@ blob_fixups: blob_fixups_user_type = {
      ): blob_fixup()
         .replace_needed('android.hardware.security.sharedsecret-V2-ndk.so', 'android.hardware.security.sharedsecret-V1-ndk.so')
         .replace_needed('android.hardware.security.keymint-V3-ndk.so', 'android.hardware.security.keymint-V2-ndk.so'),
-    'vendor/bin/slim_daemon': blob_fixup()
-    .add_needed(
-        'libc++_shared.so',
-    ),
-    'vendor/etc/init/android.hardware.security.keymint-service-spu-qti.rc': blob_fixup()
-    .regex_replace(
-        'on init && property:ro.boot.product.vendor.sku=pineapple', 'on init'
-    ),
-    'vendor/etc/msm_irqbalance.conf': blob_fixup()
-    .regex_replace(
-        'IGNORED_IRQ=27,23,38', 'IGNORED_IRQ=27,23,38,115,332'
-    ),
     (
         'vendor/bin/hw/vendor.semc.hardware.extlight-service.somc',
         'vendor/lib64/vendor.semc.hardware.extlight-V1-ndk_platform.so',
@@ -97,29 +78,23 @@ blob_fixups: blob_fixups_user_type = {
         'gettid: 1'
     ),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
-    .add_needed(
-        'libhidlbase_shim.so',
-    )
-    .add_needed(
-        'libbinder_shim.so',
-    ),
+        .add_needed('libbinder_shim.so')
+        .add_needed('libhidlbase_shim.so'),
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
-    .add_needed(
-        'libcodec2_shim.so'
-    ),
+        .add_needed('libcodec2_shim.so'),
     'vendor/lib64/hw/fingerprint.default.so': blob_fixup()
-    .binary_regex_replace(b'bix.fingerprint', b'fingerprint\x00\x00\x00\x00'),
+        .binary_regex_replace(b'bix.fingerprint', b'fingerprint\x00\x00\x00\x00'),
     'vendor/lib64/nfc_nci.nqx.default.hw.so': blob_fixup()
-    .add_needed(
-        'libbase_shim.so'
-    ),
+        .add_needed('libbase_shim.so'),
+    'system_ext/bin/horae': blob_fixup()
+        .replace_needed('libprotobuf-cpp-lite.so', 'libprotobuf-cpp-lite-21.7.so'),
+    'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
+        .replace_needed('libprotobuf-cpp-full.so','libprotobuf-cpp-full-21.7.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
-    .add_needed(
-        'libinput_shim.so'
-    ),
+        .add_needed('libinput_shim.so'),
     'vendor/etc/seccomp_policy/gnss@2.0-qsap-location.policy': blob_fixup()
-    .add_line_if_missing('sched_get_priority_min: 1')
-    .add_line_if_missing('sched_get_priority_max: 1'),
+        .add_line_if_missing('sched_get_priority_min: 1')
+        .add_line_if_missing('sched_get_priority_max: 1'),
     (
         'vendor/bin/poweropt-service',
         'vendor/lib64/libaodoptfeature.so',
@@ -134,8 +109,6 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libvideooptfeature.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
-    'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
-        .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
     (
         'vendor/bin/qcc-vendor',
         'vendor/bin/qms',
@@ -145,6 +118,24 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libqms_client.so'
     ): blob_fixup()
         .add_needed('libbinder_shim.so'),
+    ('vendor/etc/media_codecs_pineapple.xml'): blob_fixup()
+        .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|google_video|vendor_audio).*\n', ''),
+    'vendor/etc/init/vendor.dpmd.rc': blob_fixup()
+        .regex_replace(
+            r'(service\s+vendor\.dpmd\s+/vendor/bin/vendor\.dpmd\s*\n)',
+            r'\1    user root\n'
+        ),
+    'vendor/etc/init/nicmd.rc': blob_fixup()
+        .regex_replace(
+            r'(service\s+vendor\.nicmd\s+/system/vendor/bin/nicmd\s*\n\s*class\s+main)',
+            r'\1\n    user root\n    group root'
+        ),
+    (
+        'vendor/lib64/libVoiceSdk.so',
+        'vendor/lib64/libcapiv2uvvendor.so',
+        'vendor/lib64/liblistensoundmodel2vendor.so',
+    ): blob_fixup()
+        .replace_needed('libtensorflowlite_c.so', 'libtensorflowlite_c_vendor.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
