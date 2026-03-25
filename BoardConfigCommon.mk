@@ -155,17 +155,17 @@ TARGET_KERNEL_EXT_MODULES := \
     nxp/opensource/driver
 
 TARGET_KERNEL_EXT_MODULES += \
-    semc/hardware/kernel-modules/msm/lxs_ts \
     cirrus/kernel-modules/cs40l25/drivers/misc \
     cirrus/kernel-modules/cs40l25/sound/soc/codecs \
     cirrus/kernel-modules/cs35l45/sound/soc/codecs \
+    semc/hardware/camera-kernel-module/camera_sync \
+    semc/hardware/camera-kernel-module/hdmi_detect \
+    semc/hardware/camera-kernel-module/slg51000_regulator \
+    semc/hardware/camera-kernel-module/sony_camera \
     semc/hardware/charge/kernel-modules/battchg_ext \
     semc/hardware/charge/kernel-modules/battman_dbg \
-    semc/hardware/kernel-modules/misc/et6xx
-
-# Causes random kernel lockups, probably abi mismatch between upstream somehow
-#TARGET_KERNEL_EXT_MODULES += \
-    semc/hardware/camera-kernel-module/sony_camera \
+    semc/hardware/kernel-modules/misc/et6xx \
+    semc/hardware/kernel-modules/msm/lxs_ts \
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
