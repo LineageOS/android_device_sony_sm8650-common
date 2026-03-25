@@ -1,3 +1,30 @@
+# Audio
+audio.sys.mute.latency.factor=2
+audio.sys.noisy.broadcast.delay=600
+audio.sys.offload.pstimeout.secs=3
+persist.audio.fluence.speaker=true
+persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicecomm=true
+persist.audio.fluence.voicerec=false
+qcom.hw.aac.encoder=true
+ro.audio.asyncdump.support=1
+tunnel.audio.encode=true
+use.voice.path.for.pcm.voip=true
+
+# Bluetooth
+bluetooth.leaudio.dual_bidirection_swb.supported=true
+persist.bluetooth.bqr.choppy_threshold=1,1
+persist.bluetooth.bqr.event_mask=0x8004001E
+persist.bluetooth.bqr.min_interval_ms=6000
+persist.bluetooth.leaudio.bypass_allow_list=true
+persist.bluetooth.leaudio.notify.idle.during.call=true
+persist.bluetooth.snooplogfilter.profiles.a2dp.enabled=true
+persist.bluetooth.snooplogfilter.profiles.map=fullfilter
+persist.bluetooth.snooplogfilter.profiles.pbap=fullfilter
+persist.bluetooth.snooplogfilter.profiles.rfcomm.enabled=true
+persist.vendor.btstack.enable.lpa=true
+ro.bluetooth.leaudio_offload.supported=true
+
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
@@ -7,8 +34,48 @@ persist.vendor.dpm.feature=11
 # GPS
 persist.backup.ntpServer=0.pool.ntp.org
 
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+persist.vendor.ims.rtp.enableqxdm=15
+persist.vendor.ims.vt.enableadb=3
+
+# Media
+media.aac_51_output_enabled=true
+media.stagefright.audio.deep=false
+media.stagefright.enable-aac=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-http=true
+media.stagefright.enable-player=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-scan=true
+media.stagefright.thumbnail.prefer_hw_codecs=true
+mmp.enable.3g2=true
+persist.mm.enable.prefetch=true
+ro.media.recorder-max-base-layer-fps=60
+vendor.mm.enable.qcom_parser=16777215
+
+# Netmgr
+persist.data.df.agg.dl_pkt=10
+persist.data.df.agg.dl_size=4096
+persist.data.df.dev_name=rmnet_usb0
+persist.data.df.dl_mode=5
+persist.data.df.iwlan_mux=9
+persist.data.df.mux_count=8
+persist.data.df.ul_mode=5
+persist.data.wda.enable=true
+persist.rmnet.data.enable=true
+persist.vendor.data.mode=concurrent
+
 # RIL
 ril.subscription.types=NV,RUIM
+
+# Sensors
+persist.vendor.sensors.enable.mag_filter=true
+
+# Vendor
+ro.vendor.qti.va_aosp.support=1
 
 # ZRAM
 ro.zram.mark_idle_delay_mins=60
