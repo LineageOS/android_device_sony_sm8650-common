@@ -1697,6 +1697,7 @@ system_ext/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so|8db624c15f11f1045
 system_ext/lib64/vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk.so|e90b8c77ffbc8b304a3920ec1191ccc5b9d9ab21
 system_ext/priv-app/WfdService/WfdService.apk|fd01d13ea58b77d20bfc0b1eae6dd7ac7ac0d5bd
 
+# WiFi Display - vendor
 vendor/bin/wifidisplayhalservice|8272da8e4822e93f5ab508165c288da46f2dff35
 vendor/etc/init/android.hardware.drm@1.1-service.wfdhdcp.rc|c266f08783a17f6583e3f22c85e55b0c200442ea
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc|576ce4393b7746b77a230745aa9e9ee3bd31b17d
@@ -1733,3 +1734,5 @@ vendor/lib64/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so|3930f9467084
 
 # Widevine DRM
 vendor/apex/com.google.android.widevine.nonupdatable.apex
+vendor/lib64/libhdcpsrm.so
+vendor/lib64/liboemcrypto.so
