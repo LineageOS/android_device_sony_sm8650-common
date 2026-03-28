@@ -70,7 +70,7 @@ persist.vendor.data.mode=concurrent
 
 # RIL
 ril.subscription.types=NV,RUIM
-persist.vendor.radio.poweron_opt=1
+persist.vendor.radio.poweron_opt=0
 ro.telephony.sim_slots.count=2
 telephony.active_modems.max_count=2
 telephony.lteOnCdmaDevice=1
