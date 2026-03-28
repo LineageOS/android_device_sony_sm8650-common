@@ -97,7 +97,10 @@ BOARD_BOOTCONFIG := \
     androidboot.load_modules_parallel=true \
     androidboot.memcg=1 \
     androidboot.vendor.qspa=true \
-    androidboot.usbcontroller=a600000.dwc3
+    androidboot.vendor.qspa.modem=enabled \
+    androidboot.vendor.qspa.nav=enabled \
+    androidboot.usbcontroller=a600000.dwc3 \
+    androidboot.selinux=permissive
 
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_KERNEL_BASE := 0x00000000
