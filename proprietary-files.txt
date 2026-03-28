@@ -817,6 +817,8 @@ vendor/lib64/libspcom.so
 
 # Keyprov
 vendor/bin/keyprovd
+vendor/bin/spu_install_keybox
+vendor/bin/spu_status_check
 vendor/etc/init/init.keyprovd.rc
 
 # Limits
