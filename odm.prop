@@ -15,3 +15,6 @@ persist.vendor.display.colorgamut.mode=1
 persist.vendor.display.sspp_color_mode=1
 persist.vendor.display.opec_mode=0
 vendor.display.hmd_mode=0
+
+# Radio
+persist.vendor.radio.force_on_dc=true
