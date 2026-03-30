@@ -18,10 +18,6 @@ BOARD_VENDOR := sony
 
 COMMON_PATH := device/sony/sm8650-common
 
-# prebuilt kernel
-#BUILD_BROKEN_DUP_RULES := true
-#BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-
 # A/B
 AB_OTA_UPDATER := true
 
@@ -99,8 +95,7 @@ BOARD_BOOTCONFIG := \
     androidboot.vendor.qspa=true \
     androidboot.vendor.qspa.modem=enabled \
     androidboot.vendor.qspa.nav=enabled \
-    androidboot.usbcontroller=a600000.dwc3 \
-    androidboot.selinux=permissive
+    androidboot.usbcontroller=a600000.dwc3
 
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_KERNEL_BASE := 0x00000000
