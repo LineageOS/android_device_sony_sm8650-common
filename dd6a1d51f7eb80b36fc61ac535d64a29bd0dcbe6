@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed64f7dd_7760d884",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-04-01T14:56:55Z",
+      "side": 1,
+      "message": "Builds succesfully and does not cause any further regressions.",
+      "revId": "dd6a1d51f7eb80b36fc61ac535d64a29bd0dcbe6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
