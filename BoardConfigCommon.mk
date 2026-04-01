@@ -27,18 +27,15 @@ AB_OTA_PARTITIONS += \
     init_boot \
     product \
     system \
+    system_dlkm \
     system_ext \
     vbmeta \
     vbmeta_system \
     odm \
     recovery \
-    vendor
-
-# a/b ota partitions after we get rid of prebuilt kernel
-AB_OTA_PARTITIONS += \
-    vendor_boot \
+    vendor \
     vendor_dlkm \
-    system_dlkm
+    vendor_boot
 
 # Architecture
 TARGET_ARCH := arm64
