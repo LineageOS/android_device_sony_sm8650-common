@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "252f1ed0_4d557861",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-04-01T15:19:38Z",
+      "side": 1,
+      "message": "Just minor reorder patch.",
+      "revId": "292ac168c33ba772419efcad251fcde72457b81b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
