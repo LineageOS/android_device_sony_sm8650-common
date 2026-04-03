@@ -83,7 +83,8 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libcodec2_shim.so'),
     'vendor/lib64/hw/fingerprint.default.so': blob_fixup()
-        .binary_regex_replace(b'bix.fingerprint', b'fingerprint\x00\x00\x00\x00'),
+        .binary_regex_replace(b'bix.fingerprint', b'fingerprint\x00\x00\x00\x00')
+        .sig_replace('09 60 C0 F2', '29 40 C0 F2'),
     'vendor/lib64/nfc_nci.nqx.default.hw.so': blob_fixup()
         .add_needed('libbase_shim.so'),
     'system_ext/bin/horae': blob_fixup()
