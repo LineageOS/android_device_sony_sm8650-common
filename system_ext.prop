@@ -25,6 +25,9 @@ persist.bluetooth.snooplogfilter.profiles.rfcomm.enabled=true
 persist.vendor.btstack.enable.lpa=true
 ro.bluetooth.leaudio_offload.supported=true
 
+# Charger
+ro.charger.enable_suspend=1
+
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
