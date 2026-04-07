@@ -16,6 +16,41 @@
       "message": "I think it should be cs40l25 instead? Lineage doesn\u0027t have a common cs40l25 vibrator HAL.",
       "revId": "b015d904a3c86c0f1ce479166f96d0e9a1ee3faa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41ea7fb5_6d9d2d22",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-04-07T17:03:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "235d01bb_ea31df5d",
+      "revId": "b015d904a3c86c0f1ce479166f96d0e9a1ee3faa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e931542_60f7ce9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-04-07T17:03:36Z",
+      "side": 1,
+      "message": "will change commit message",
+      "revId": "b015d904a3c86c0f1ce479166f96d0e9a1ee3faa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
