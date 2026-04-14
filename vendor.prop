@@ -148,7 +148,6 @@ ro.soc.model=SM8650
 ro.crypto.metadata_init_delete_all_keys.enabled=true
 
 # Display
-ro.hardware.lights=sony
 ro.surface_flinger.supports_background_blur=1
 persist.sys.sf.color_mode=9
 persist.sys.sf.color_saturation=1.0
