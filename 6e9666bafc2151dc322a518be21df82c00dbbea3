@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "600af866_e3613cfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-05-02T10:25:35Z",
+      "side": 1,
+      "message": "Fixes ringtones when bt device is connected",
+      "revId": "6e9666bafc2151dc322a518be21df82c00dbbea3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
