@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf1df314_7c27f76b",
+        "filename": "BoardConfigCommon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-07-12T21:28:03Z",
+      "side": 1,
+      "message": "This is not necessary. See: https://github.com/LineageOS/android_hardware_qcom-caf_common/blob/lineage-23.2/BoardConfigQcom.mk#L451-L460",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 73
+      },
+      "revId": "8f0c1f5254e8ce7b75a876d9641a2c20482f1f36",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
