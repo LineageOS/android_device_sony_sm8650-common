@@ -16,6 +16,23 @@
       "message": "Updated commit message",
       "revId": "f23cad31a94e2dfd6efc9c89a6d4b59edd3f45ef",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73d8b763_5b75b2b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-07-13T19:04:46Z",
+      "side": 1,
+      "message": "Acked, had similar changes locally ready to push anyway. Will test on device but looks fine. Thank you",
+      "revId": "f23cad31a94e2dfd6efc9c89a6d4b59edd3f45ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
