@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcbd7f7b_b6d8573d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 37544
+      },
+      "writtenOn": "2026-07-13T08:32:32Z",
+      "side": 1,
+      "message": "Updated commit message",
+      "revId": "f23cad31a94e2dfd6efc9c89a6d4b59edd3f45ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
