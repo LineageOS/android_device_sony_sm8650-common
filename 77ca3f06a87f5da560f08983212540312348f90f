@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "53bc6427_e41984ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 37544
+      },
+      "writtenOn": "2026-07-15T20:25:22Z",
+      "side": 1,
+      "message": "IIRC, the built-in lineage updater doesn\u0027t allow changing the OTA URL from userspace and requires forking the LineageOS which isn\u0027t an option for most users.",
+      "parentUuid": "0a6d2a65_7d315377",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 35
+      },
+      "revId": "77ca3f06a87f5da560f08983212540312348f90f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e487978e_b0c12811",
