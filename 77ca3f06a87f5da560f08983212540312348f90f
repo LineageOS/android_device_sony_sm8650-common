@@ -48,6 +48,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "01cc2433_8d29d869",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-07-15T20:26:42Z",
+      "side": 1,
+      "message": "it does:\n\n```\nadb root\nadb shell\necho lineage.updater.uri\u003dxxx \u003e /data/local.prop\nchmod 644 /data/local.prop\nreboot\n```",
+      "parentUuid": "53bc6427_e41984ec",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 35
+      },
+      "revId": "77ca3f06a87f5da560f08983212540312348f90f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e487978e_b0c12811",
