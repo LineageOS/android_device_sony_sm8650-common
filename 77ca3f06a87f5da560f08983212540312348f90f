@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bf6fcd06_79508967",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 37544
+      },
+      "writtenOn": "2026-07-16T14:10:05Z",
+      "side": 1,
+      "message": "Thanks for the tip. I guess, that makes Custota only useful on \"user\" builds, which defies the purpose of this patch. Abandoning",
+      "parentUuid": "01cc2433_8d29d869",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 35
+      },
+      "revId": "77ca3f06a87f5da560f08983212540312348f90f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e487978e_b0c12811",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
