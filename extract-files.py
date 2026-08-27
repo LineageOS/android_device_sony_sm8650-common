@@ -136,6 +136,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/liblistensoundmodel2vendor.so',
     ): blob_fixup()
         .replace_needed('libtensorflowlite_c.so', 'libtensorflowlite_c_vendor.so'),
+    'vendor/lib64/libperfgluelayer.so': blob_fixup()
+        .sig_replace('87 08 00 94', '1F 20 03 D5'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
