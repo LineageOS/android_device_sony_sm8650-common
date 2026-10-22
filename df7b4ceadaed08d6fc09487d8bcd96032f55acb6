@@ -46,6 +46,30 @@
       },
       "revId": "df7b4ceadaed08d6fc09487d8bcd96032f55acb6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c046537_b7414059",
+        "filename": "blob-patches/btaudio_offload_if.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-22T19:58:22Z",
+      "side": 1,
+      "message": "hmm i think space at the end might not be necessary btw? i think fromhex() just ignores spaces.",
+      "parentUuid": "43848773_2569313e",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 0
+      },
+      "revId": "df7b4ceadaed08d6fc09487d8bcd96032f55acb6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
