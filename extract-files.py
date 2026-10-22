@@ -86,6 +86,19 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libhidlbase_shim.so'),
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libcodec2_shim.so'),
+    'vendor/lib64/btaudio_offload_if.so': blob_fixup()
+        .sig_replace('08 3C 80 52 C8 56 A8 9B 09 D1 40 \
+                      B9 3F 09 00 71 61 08 00 54 08 A1 \
+                      01 91 08 21 40 B9 24 00 00 14',
+                     '09 D1 40 B9 3F 09 00 71 A1 08 00 \
+                      54 08 89 40 B9 09 7D 80 52 08 09 \
+                      C9 1A 25 00 00 14 1F 20 03 D5')
+        .sig_replace('08 3C 80 52 C8 56 A8 9B 09 41 41 \
+                      B9 3F 09 00 71 61 07 00 54 08 61 \
+                      03 91 08 21 40 B9 1C 00 00 14',
+                     '09 41 41 B9 3F 09 00 71 A1 07 00 \
+                      54 08 F9 40 B9 09 7D 80 52 08 09 \
+                      C9 1A 1D 00 00 14 1F 20 03 D5'),
     'vendor/lib64/hw/fingerprint.default.so': blob_fixup()
         .binary_regex_replace(b'bix.fingerprint', b'fingerprint\x00\x00\x00\x00')
         .sig_replace('09 60 C0 F2', '29 40 C0 F2'),
