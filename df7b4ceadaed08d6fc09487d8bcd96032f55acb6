@@ -22,6 +22,30 @@
       },
       "revId": "df7b4ceadaed08d6fc09487d8bcd96032f55acb6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43848773_2569313e",
+        "filename": "blob-patches/btaudio_offload_if.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-10-22T19:57:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ae3d6105_af0c10f3",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 0
+      },
+      "revId": "df7b4ceadaed08d6fc09487d8bcd96032f55acb6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
