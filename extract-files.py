@@ -86,6 +86,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libhidlbase_shim.so'),
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libcodec2_shim.so'),
+    'vendor/lib64/btaudio_offload_if.so': blob_fixup()
+        .patch_file('blob-patches/btaudio_offload_if.py'),
     'vendor/lib64/hw/fingerprint.default.so': blob_fixup()
         .binary_regex_replace(b'bix.fingerprint', b'fingerprint\x00\x00\x00\x00')
         .sig_replace('09 60 C0 F2', '29 40 C0 F2'),
