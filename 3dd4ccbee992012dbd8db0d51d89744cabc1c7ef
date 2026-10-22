@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f17dc16_62708b3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-10-22T18:56:27Z",
+      "side": 1,
+      "message": "I\u0027m not sure whether other 8650 devices shipped with newer blobs. Maybe it would be possible to fix abi source side, but that would mean that we would have to fix conflicts and would probably lead to more harm than good when using oss audio..",
+      "revId": "3dd4ccbee992012dbd8db0d51d89744cabc1c7ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
