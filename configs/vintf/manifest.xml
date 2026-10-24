@@ -211,11 +211,6 @@ SPDX-License-Identifier: BSD-3-Clause
         </interface>
     </hal>
     <hal format="aidl">
-        <name>vendor.semc.hardware.aidldisplay</name>
-        <fqname>IDisplay/default</fqname>
-        <fqname>IFramerateController/default</fqname>
-    </hal>
-    <hal format="aidl">
         <name>vendor.somc.hardware.aidlmiscta</name>
         <fqname>IMisctaGlobal/default</fqname>
     </hal>

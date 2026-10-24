@@ -456,6 +456,11 @@ vendor/lib64/libtestutils.so
 vendor/lib64/libtinyxml2_1.so
 vendor/lib64/libvmfilexfer.so
 
+# Display (Sony)
+vendor/bin/hw/vendor.semc.hardware.aidldisplay-service.somc
+vendor/etc/init/vendor.semc.hardware.aidldisplay-somc.rc
+vendor/etc/vintf/manifest/vendor.semc.hardware.aidldisplay-somc.xml
+
 # Display calibration data
 vendor/etc/display/DPU1010.xml
 vendor/etc/display/DPU10__.xml
